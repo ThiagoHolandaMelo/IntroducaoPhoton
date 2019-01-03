@@ -109,7 +109,8 @@ public class NetworkController : MonoBehaviourPunCallbacks {
 		loginGO.gameObject.SetActive(false);
         partidasGO.gameObject.SetActive(false);
 		
-		Instantiate(myPlayer, myPlayer.transform.position, myPlayer.transform.rotation);
+		//Instantiate(myPlayer, myPlayer.transform.position, myPlayer.transform.rotation);
+		PhotonNetwork.Instantiate(myPlayer.name, myPlayer.transform.position, myPlayer.transform.rotation, 0);
 
     }
 
