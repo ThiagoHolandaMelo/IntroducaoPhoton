@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,10 +13,23 @@ public class PlayerController : MonoBehaviour
 	Rigidbody2D rigidbody2D;
 	PhotonView photonView;
 	
+	[Header("Health")]
+	public float playerHealthMax = 100;
+	float playerHealthCurrent;
+	public Image playerHealthFill;
+	
+	[Header("Bullet")]
+	public GameObject bullet;
+	public GameObject bullet2;
+	public GameObject bullet3;
+	
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        photonView = GetComponent<PhotonView>();
+
+        HealthManager( playerHealthMax );
     }
 
     // Update is called once per frame
@@ -24,6 +38,10 @@ public class PlayerController : MonoBehaviour
 		if( photonView.IsMine ){
 			PlayerMove();
 			PlayerTurn();
+		}
+		
+		if(Input.GetMouseButton(0)){
+			HealthManager(-10f);
 		}
         
     }
@@ -46,5 +64,16 @@ public class PlayerController : MonoBehaviour
 		);
 		
 		transform.up = direction;
+	}
+	
+	void HealthManager(float value){
+		playerHealthCurrent += value;
+		playerHealthFill.fillAmount = playerHealthCurrent/100f;
+		
+		if( playerHealthCurrent > playerHealthMax){
+			playerHealthCurrent = playerHealthMax;
+		}
+		
+		Debug.Log("Passei aqui");
 	}
 }
