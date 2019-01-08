@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour
 	public Image playerHealthFill;
 	
 	[Header("Bullet")]
-	public GameObject bullet;
-	public GameObject bullet2;
-	public GameObject bullet3;
+	public GameObject bulletGO; // Bala que vai ser processada localmente em cada player
+	public GameObject spawnBullet;	// Local onde vai ser criado as balas 
+	public GameObject bulletPhotonView;
 	
     // Start is called before the first frame update
     void Start()
@@ -38,9 +38,10 @@ public class PlayerController : MonoBehaviour
 		if( photonView.IsMine ){
 			PlayerMove();
 			PlayerTurn();
-		}
-		
-		if(Input.GetMouseButton(0)){
+            Shooting();
+        }
+
+        if (Input.GetMouseButton(0)){
 			HealthManager(-10f);
 		}
         
@@ -75,5 +76,18 @@ public class PlayerController : MonoBehaviour
 		}
 		
 		Debug.Log("Passei aqui");
+	}
+	
+	void Shooting(){
+		
+		//Botão Esquerdo
+		if( Input.GetMouseButtonDown(0) ){
+			Instantiate( bulletGO, spawnBullet.transform.position, spawnBullet.transform.rotation);
+		}
+		
+		//Botão Direito
+		if( Input.GetMouseButtonDown(1) ){
+            PhotonNetwork.Instantiate(bulletPhotonView.name, spawnBullet.transform.position, spawnBullet.transform.rotation, 0);
+        }
 	}
 }

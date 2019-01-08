@@ -132,7 +132,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 cba6cca6bb3290c4c00d709cf63843db Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.SendRateOnSerializeField
 9d65954b754eaf4accff343c2e40aec1 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.TabViewManager
-77b5b392291ad3027e7177d702923e9e Assembly-CSharp.dll:.PlayerController
+0e0d81091c592f7c4f854bf2ca39f04d Assembly-CSharp.dll:.PlayerController
 00274a21279f5cb831ce20f895049e38 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 9c80efe996101ed2f2acdc43e1a95b5b Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.AsteroidsGameManager
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -438,3 +438,4 @@ ae91c545dea6ac849dd81c4b660c68ca Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
+231e79a1a9194e0d86e6f49a967073a4 Assembly-CSharp.dll:.BulletController
