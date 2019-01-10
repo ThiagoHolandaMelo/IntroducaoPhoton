@@ -35,6 +35,7 @@ public class BulletController : MonoBehaviour
 
     }
 
+    /*
     [PunRPC]
     void BulletDestroy()
     {
@@ -56,6 +57,7 @@ public class BulletController : MonoBehaviour
         Destroy(this.gameObject);
 
     }
+    */
 
 
 

@@ -41,10 +41,14 @@ public class PlayerController : MonoBehaviour
             Shooting();
         }
 
+        
+
+        /*
         if (Input.GetMouseButton(0)){
 			HealthManager(-10f);
 		}
-        
+        */
+
     }
 	
 	void PlayerMove(){

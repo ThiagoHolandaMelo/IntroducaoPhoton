@@ -310,6 +310,7 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 e1e615eaf73e560828f53edc8952e615 PhotonUnityNetworking.Utilities.dll:Photon.Pun.UtilityScripts.PunTurnManager
 e4316571779021b969790af4a77452dd Assembly-CSharp.dll:Photon.Pun.Demo.Asteroids.RoomListEntry
 c656dcc13ae391b68d594cc8f9c590b0 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.ServerProperty
+231e79a1a9194e0d86e6f49a967073a4 Assembly-CSharp.dll:.BulletController
 d2a2698b314a20912af1eb2b1758dc90 Assembly-CSharp.dll:Photon.Pun.Demo.Cockpit.PropertyCell
 931f489e44eadf809e9310429c99dde5 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
@@ -438,4 +439,3 @@ ae91c545dea6ac849dd81c4b660c68ca Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
-231e79a1a9194e0d86e6f49a967073a4 Assembly-CSharp.dll:.BulletController
