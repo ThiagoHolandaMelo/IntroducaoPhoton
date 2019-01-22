@@ -33,4 +33,5 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - BulletDestroy
+  - Shoot
   DisableAutoOpenWizard: 1

@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Thiago/Estudos/unity/Builds/IntroducaoPhoton.exe
+C:/Thiago/unity/workspace/IntroducaoPhoton/exe/IntroducaoPhoton.exe
 SceneListBegin?
 Assets/MyGame/Scenes/SampleScene.unity
 SceneListEnd?

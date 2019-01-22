@@ -93,14 +93,15 @@ GameObject:
   - component: {fileID: 30}
   - component: {fileID: 33}
   - component: {fileID: 50}
-  - component: {fileID: 48}
+  - component: {fileID: 5627989573650687815}
+  - component: {fileID: 5419893179263356144}
   m_Layer: 0
   m_Name: MyPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &25
 Transform:
   m_ObjectHideFlags: 0
@@ -155,7 +156,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &33
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -190,11 +191,12 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 48}
-  viewIdField: 1
+  - {fileID: 5627989573650687815}
+  - {fileID: 5419893179263356144}
+  viewIdField: 0
   InstantiationId: 1
   isRuntimeInstantiated: 0
---- !u!114 &48
+--- !u!114 &5627989573650687815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,6 +211,22 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &5419893179263356144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &17
 GameObject:
   m_ObjectHideFlags: 0

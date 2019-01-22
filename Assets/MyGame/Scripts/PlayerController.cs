@@ -5,7 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
 
 	public float playerSpeed = 5f;
@@ -86,7 +86,8 @@ public class PlayerController : MonoBehaviour
 		
 		//Botão Esquerdo
 		if( Input.GetMouseButtonDown(0) ){
-			Instantiate( bulletGO, spawnBullet.transform.position, spawnBullet.transform.rotation);
+            photonView.RPC("Shoot", RpcTarget.All);
+			//Instantiate( bulletGO, spawnBullet.transform.position, spawnBullet.transform.rotation);
 		}
 		
 		//Botão Direito
@@ -94,4 +95,40 @@ public class PlayerController : MonoBehaviour
             PhotonNetwork.Instantiate(bulletPhotonView.name, spawnBullet.transform.position, spawnBullet.transform.rotation, 0);
         }
 	}
+
+    [PunRPC]
+    void Shoot() {
+        Instantiate(bulletGO, spawnBullet.transform.position, spawnBullet.transform.rotation);
+    }
+
+    /*
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if( stream.IsWriting )
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+
+            stream.SendNext(rigidbody2D.velocity);
+        }
+        else
+        {
+            //Metodologias para evitar lag parte 1
+            float lag = (float) (PhotonNetwork.Time - info.timestamp);
+            Vector3 tempPosition = (Vector3)stream.ReceiveNext();
+
+            transform.position = Vector3.Lerp( transform.position, tempPosition, Mathf.Abs( lag ) );
+
+            //forma padrão
+            //transform.position = (Vector3)stream.ReceiveNext();
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+
+            rigidbody2D.velocity = (Vector2)stream.ReceiveNext();
+
+            //Metodologias para evitar lag parte 1
+            lag = (float)(PhotonNetwork.Time - info.timestamp);
+            rigidbody2D.position += rigidbody2D.velocity * lag;
+        }
+    }
+    */
 }
