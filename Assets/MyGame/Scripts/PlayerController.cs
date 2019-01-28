@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using UnityEngine.UI;
 
@@ -99,6 +100,61 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     void Shoot() {
         Instantiate(bulletGO, spawnBullet.transform.position, spawnBullet.transform.rotation);
+    }
+
+    public void TakeDamage(float value, Player playerTemp)
+    {
+        photonView.RPC("TakeDamageNetwork", RpcTarget.AllBuffered, value, playerTemp);
+    }
+
+    [PunRPC]
+    void TakeDamageNetwork(float value, Player playerTemp)
+    {
+        HealthManager(value);
+
+        //Recuperando o score atual do player e armazenando na variável playerScoreTempGet
+        object playerScoreTempGet;
+        playerTemp.CustomProperties.TryGetValue("Score", out playerScoreTempGet);
+
+        //Ajustando pontuação do player
+        int soma = (int)playerScoreTempGet;
+        soma += 10;
+
+        ExitGames.Client.Photon.Hashtable playerHashtableTemp = new ExitGames.Client.Photon.Hashtable();
+        playerHashtableTemp.Add("Score", soma);
+
+        playerTemp.SetCustomProperties(playerHashtableTemp, null, null);
+
+        playerTemp.AddScore(10);
+
+        Debug.Log("playerHealthCurrent = " + playerHealthCurrent);
+
+        //Checagem do fim do jogo
+        if (playerHealthCurrent <= 0 && photonView.IsMine)
+        {
+            photonView.RPC("IsGameOver", RpcTarget.MasterClient);
+        }
+    }
+
+    [PunRPC]
+    void IsGameOver()
+    {
+
+        //Apenas o Masterclient irá disparar essa validação
+        if (photonView.Owner.IsMasterClient)
+        {
+            Debug.Log("GameOver");
+
+            foreach (var item in PhotonNetwork.PlayerList)
+            {
+                object playerScoreTempGet;
+                item.CustomProperties.TryGetValue("Score", out playerScoreTempGet);
+
+                Debug.Log("Player Name: " + item.NickName + " | Score: " + playerScoreTempGet.ToString() + " | Score via Photon: " + item.GetScore());
+                    
+            }
+        }
+
     }
 
     /*
